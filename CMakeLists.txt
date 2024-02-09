@@ -41,13 +41,13 @@ if (CMAKE_COMPILER_IS_GNUCC)
 endif (CMAKE_COMPILER_IS_GNUCC)
 
 if (MSVC)
+    find_package(PThreads4W REQUIRED)
+
     set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} /MDd")
     set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} /MD /GL /arch:SSE2 /D PTW32_STATIC_LIB")
     add_definitions(-D_CRT_NONSTDC_NO_DEPRECATE)
     add_definitions(-D_CRT_SECURE_NO_DEPRECATE)
     add_definitions(-D_CRT_NONSTDC_NO_WARNINGS)
-    set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} pthreadVC2.lib")
-    set(CMAKE_EXE_LINKER_FLAGS_RELEASE "${CMAKE_EXE_LINKER_FLAGS_RELEASE} pthreadVC2_static.lib")
     
     # MSVC doesn't come with a getopt implementation
     include_directories("./lib/getopt")
@@ -72,5 +72,9 @@ add_executable(dsdunpack
     ${libdstdec_headers} ${libdstdec_sources}
 	${getopt_headers} ${getopt_sources}
     )
+
+if (MSVC)
+    target_link_libraries(dsdunpack PRIVATE PThreads4W::PThreads4W)
+endif()
 
 set(CMAKE_BUILD_TYPE Release)
