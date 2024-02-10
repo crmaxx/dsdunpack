@@ -8,7 +8,7 @@ Parts of this project are based on the DSD Unpack project.
 See https://github.com/michaelburton/dsdunpack for more info.
 
 Tested on Windows using clang from MSVC 2022. You will need
-PThreads4W from vcpkg to build using MSVC.
+PThreads4W from [vcpkg](https://github.com/microsoft/vcpkg) to build using MSVC.
 
 # Install
 
