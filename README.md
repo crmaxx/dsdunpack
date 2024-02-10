@@ -12,9 +12,9 @@ PThreads4W from vcpkg to build using MSVC.
 
 # Install
 
-clang
 ```
 .\vcpkg install pthreads
+git clone git://github.com/crmaxx/dsd-tools.git
 git submodule update --init --recursive
 ```
 
