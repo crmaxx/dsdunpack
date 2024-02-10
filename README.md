@@ -9,3 +9,11 @@ libsacd and libdstdec. See https://sacd-ripper.github.io/ for more info.
 
 Tested on Windows using MinGW 4.9.3 and MSVC 2013/2015. You will need
 pthreads-win32 to build using MSVC.
+
+# Install
+
+clang
+```
+.\vcpkg install pthreads
+git submodule update --init --recursive
+```
