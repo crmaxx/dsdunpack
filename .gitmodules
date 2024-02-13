@@ -1,0 +1,6 @@
+[submodule "lib/c-cuelib"]
+	path = lib/c-cuelib
+	url = https://github.com/crmaxx/c-cuelib
+[submodule "lib/unistd_h"]
+	path = lib/unistd_h
+	url = https://github.com/win32ports/unistd_h
